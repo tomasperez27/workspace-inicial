@@ -13,36 +13,3 @@ document.addEventListener("DOMContentLoaded", function(){
     });
 });
 
-/*let mail= document.getElementById('email-input').value;
-let saveUser = document.getElementById('save-user');
-let subm = document.getElementById('subm');
-let user = [];
-
-
-
-
-
-if (localStorage.getItem(mail.length) !== 0) {
-    user = JSON.parse(localStorage.getItem(mail));
-}
-
-saveUser.innerHTML = '';
-for (let name of  user) {
-    console.log(name);
-    saveUser.innerHTML += `<p>${name}</p>`;
-}
-
-subm.addEventListener('submit', function(){
-    user.push(`${mail}`);
-    localStorage.setItem(mail, JSON.stringify( user));
-
-    // Una opción:
-    // contenedor.innerHTML += `<p>bulbasaur</p>`;
-
-    // Otra opción:
-    saveUser.innerHTML = '';
-    for (let name of  user) {
-        console.log(name);
-        saveUser.innerHTML += `<p>${name}</p>`;
-    }
-});*/
