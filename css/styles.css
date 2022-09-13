@@ -189,5 +189,8 @@ a.custom-card:hover {
   color: orange;
 }
 
-
+#coments {
+  left: 115px;
+  position: relative;
+}
 
