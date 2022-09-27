@@ -30,9 +30,16 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" id="save-user"></a>
-          </li>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="save-user" data-bs-toggle="dropdown" aria-expanded="false">
+             
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+              <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+              <li><a class="dropdown-item" href="index.html" id="close"> Cerrar sesión</a></li>
+            </ul>
+          </div>
         </ul>
       </div>
     </div>
@@ -46,12 +53,14 @@
       <div class="row">
         <div class="col text-end">
           <div class="btn-group btn-group-toggle mb-4" data-bs-toggle="buttons">
+            <input type="search" placeholder="Escribir" id="texto">
+            <input class="btn btn-primary" type="submit" value="Buscar" id="buscar">
             <input type="radio" class="btn-check" name="options" id="sortAsce">
-            <label class="btn btn-light" for="sortAsc"><i class="fas fa-sort-amount-down mr-1"></i>$</label>
+            <label class="btn btn-light" for="sortAsce"><i class="fas fa-sort-amount-down mr-1"></i>$</label>
             <input type="radio" class="btn-check" name="options" id="sortDesce">
-            <label class="btn btn-light" for="sortDesc"><i class="fas fa-sort-amount-up mr-1"></i>$</label>
+            <label class="btn btn-light" for="sortDesce"><i class="fas fa-sort-amount-up mr-1"></i>$</label>
             <input type="radio" class="btn-check" name="options" id="sortByCost" checked>
-           <label class="btn btn-light" for="sortByCount"><i class="fas fa-sort-amount-down mr-1"></i>Rel.</label>
+           <label class="btn btn-light" for="sortByCost"><i class="fas fa-sort-amount-down mr-1"></i>Rel.</label>
           </div>
         </div>
       </div>

@@ -30,9 +30,16 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" id="save-user"></a>
-          </li>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="save-user" data-bs-toggle="dropdown" aria-expanded="false">
+             
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+              <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+              <li><a class="dropdown-item" href="index.html" id="close"> Cerrar sesión</a></li>
+            </ul>
+          </div>
         </ul>
       </div>
     </div>
@@ -50,18 +57,18 @@
     </div>
   <div>
   <p >Tu opinión:</p>
-  <textarea rows="3" cols="80" name="comentario" id="coment"></textarea>
+  <textarea rows="3" cols="50" name="comentario" id="coment"></textarea>
   </div>
   <div id="my-div"></div>
   <div>
     <br>
   <p>Tu puntuación:</p>
   <select name="nombre" style="width:155px" size="valoresvisibles" id="stars">
-    <option label="1" value="valor"></option>
-    <option label="2" value="valor"></option>
-    <option label="3" value="valor"></option>
-    <option label="4" value="valor"></option>
-    <option label="5" value="valor"></option>
+    <option label="1" value="1"></option>
+    <option label="2" value="2"></option>
+    <option label="3" value="3"></option>
+    <option label="4" value="4"></option>
+    <option label="5" value="5"></option>
   </select>
   </div>
   <div id="my-div2"></div>
@@ -71,6 +78,9 @@
   </div>
   
     </form>
+    <div id="related">
+
+    </div>
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">

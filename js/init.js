@@ -10,6 +10,7 @@ const EXT_TYPE = ".json";
 const URL=`https://japceibal.github.io/emercado-api/cats_products/${localStorage.getItem("catID")}.json`;
 const PRODUCTS = `https://japceibal.github.io/emercado-api/products/${localStorage.getItem("productID")}.json`;
 const PRO_INF_COMM =`https://japceibal.github.io/emercado-api/products_comments/${localStorage.getItem("productID")}.json`;
+
 let showSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "block";
 }
@@ -54,4 +55,8 @@ document.addEventListener("DOMContentLoaded", function(){
       
 
       
+    });
+
+    document.getElementById("close").addEventListener("click", function(){
+      localStorage.removeItem("mail");
     });
