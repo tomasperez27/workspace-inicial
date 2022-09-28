@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
       //  let productoss = productos.images[i];
 
         htmlParaApendear += 
-        `<div id="carouselExampleControls"; class="carousel slide" data-bs-ride="carousel" style="width: 60%">
+        `<br><div ext-center id="carouselExampleControls"; class="carousel slide" data-bs-ride="carousel" style="width: 60%">
         <div class="carousel-inner"  >
           ${slide}
          
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
           <span class="carousel-control-next-icon"  style="background-color:grey"  aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
-      </div>`
+      </div><br>;`
       
        // `<img src=${productoss} style= "height:136px" class="img-thumbnail">
                //   </img>`; }
@@ -141,6 +141,7 @@ document.getElementById("coments").addEventListener("submit", function (e) {
 
   document.getElementById("comentarios").innerHTML += newComent;
 });
+
 function productsetID(id) {
   localStorage.setItem("productID", id);
   window.location = "products-info.html";

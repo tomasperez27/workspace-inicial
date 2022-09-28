@@ -1,10 +1,10 @@
 const ORDER_ASC_BY_NAME = "AZ";
 const ORDER_DESC_BY_NAME = "ZA";
 const ORDER_BY_PROD_COST = "Precio";
-let currentCategoriesArray = [];
 let currentSortCriteria = undefined;
 let minCount = undefined;
 let maxCount = undefined;
+
 
 let cars = [];
 
@@ -37,6 +37,22 @@ function sortProducts(criteria, array) {
 }
 
 
+function showSearch(text, array) {
+    let result = [];
+    for (let i = 0; i < array.length; i++) {
+       let carsArray = array[i];
+        if (carsArray.name.toLowerCase().includes(text) ||
+            carsArray.description.toLowerCase().includes(text)) {
+            result.push(carsArray);
+
+        }
+
+    }
+
+    return result;
+}
+
+
 
 
 function productsetID(id) {
@@ -45,10 +61,10 @@ function productsetID(id) {
 }
 
 
-function showCarsList() {
+function showCarsList(array) {
     let htmlContentToAppend = "";
-    for (let i = 0; i < cars.products.length; i++) {
-        carsArray = cars.products[i];
+    for (let i = 0; i < array.length; i++) {
+        let carsArray = array[i];
 
         if (((minCount == undefined) || (minCount != undefined && parseInt(carsArray.cost) >= minCount)) &&
             ((maxCount == undefined) || (maxCount != undefined && parseInt(carsArray.cost) <= maxCount))) {
@@ -86,9 +102,8 @@ function sortAndShowProducts(sortCriteria, productsArray) {
     }
 
     cars.products = sortProducts(currentSortCriteria, cars.products);
-
     //Muestro las categorías ordenadas
-    showCarsList();
+    showCarsList(cars.products);
 }
 
 
@@ -96,13 +111,21 @@ document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
             cars = resultObj.data;
-            showCarsList();
+
+            showCarsList(cars.products);
 
         }
 
     });
 
+    document.getElementById("texto").addEventListener("input", function () {
+        let text = document.getElementById('texto').value;
+        showCarsList(showSearch(text, cars.products));
+       /*  if (text == '') {
+            showCarsList(cars.products);
+        } */
 
+    });
 
     document.getElementById("sortAsce").addEventListener("click", function () {
         sortAndShowProducts(ORDER_ASC_BY_NAME, cars.products);
@@ -123,7 +146,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         minCount = undefined;
         maxCount = undefined;
 
-        showCarsList();
+        showCarsList(cars.products);
     });
 
 
@@ -147,9 +170,10 @@ document.addEventListener("DOMContentLoaded", function (e) {
             maxCount = undefined;
         }
 
-        showCarsList();
+        showCarsList(cars.products);
+
     });
-   
+
 });
 
 
@@ -157,35 +181,5 @@ document.addEventListener("DOMContentLoaded", function (e) {
 document.getElementById('list-cars').addEventListener('click', function () {
 
     window.location.href = 'product-info.html';
-
-});
-
-
-document.getElementById('buscar').addEventListener('click', function () {
-    document.addEventListener("DOMContentLoaded", function (e) {
-        getJSONData(URL).then(function (resultObj) {
-            if (resultObj.status === "ok") {
-                cars = resultObj.data;
-               console.log(cars);
-            }
-
-        });
-        let texto = '';
-        texto = document.getElementById('texto');
-        let hhh = [];
-        for (car of cars.products) {
-            if (car.name.toLowerCase().includes(texto) ||
-                car.description.toLowerCase().includes(texto)) {
-
-
-                console.log(car);
-
-            }
-
-        }
-
-
-
-    });
 
 });
