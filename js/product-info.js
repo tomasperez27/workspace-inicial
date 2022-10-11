@@ -5,7 +5,13 @@ document.addEventListener("DOMContentLoaded", function (e) {
     .then(datos => {
       let productos = datos;
       let htmlParaApendear = ` <div> <br>
-           <h2 class="mb-4">${productos.name}  </h2>  </div> 
+           <h2 class="mb-4">${productos.name}  </h2> 
+           </div>
+          <div class= " justify-content-right ">
+                    <input class="btn btn-success"  id="sell1" type="submit"  value="Comprar">
+                
+                    </div>
+         
            <div class="list-group-item">
            <div class="row">
           
@@ -102,7 +108,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
               `;
       }
       document.getElementById("products").innerHTML += htmlParaApendear;
+    
     })
+  
 });
 
 //<span class="fa fa-star checked"></span><span class="fa fa-star"></span>
@@ -167,7 +175,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
       }
 
        document.getElementById("related").innerHTML += htmlParaApendear;
+       
     })
+
   });
 
   document.getElementById("related").addEventListener('click', function () {
@@ -175,4 +185,9 @@ localStorage.getItem("productID")
     window.location.href = 'product-info.html';
 
 });
- 
+
+document.getElementById("sell1").addEventListener('submit', function () {
+
+  // localStorage.getItem("productID");
+     window.location.href = 'cart.html';
+  });
