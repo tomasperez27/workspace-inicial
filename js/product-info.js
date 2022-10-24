@@ -3,30 +3,32 @@ let productos = [];
 document.addEventListener("DOMContentLoaded", function (e) {
   fetch(PRODUCTS).then(respuesta => respuesta.json())
     .then(datos => {
+    
       let productos = datos;
       let htmlParaApendear = ` <div> <br>
-           <h2 class="mb-4">${productos.name}  </h2> 
-           </div>
-          <div class= " justify-content-right ">
-                    <input class="btn btn-success"  id="sell1" type="submit"  value="Comprar">
-                
+           <h2 class="mb-4" >${productos.name}  </h2> 
+      <div class="float">
+      <a role="button" class="btn btn-success" href="cart.html">Comprar</a>
+    
                     </div>
+                    </div>
+        
          
            <div class="list-group-item">
            <div class="row">
           
            <div class="col">
-               <div class="col">
+               
                    
                    <h5 class="mb-2"><b>Precio</b></h5>
                    <p class="mb-1">${productos.currency}${productos.cost}</p> 
-                   </div>
+                   
               <h5 class="mb-1"><b>Descripción</b></h5>
                <p class="mb-1">${productos.description}</p>
-               </div>
+              
                <h5 class="mb-1"><b>Categoría</b></h5> 
                <p class="mb-1">${productos.category}</p>
-            </div>
+            
                <h5 class="mb-1"><b>Cantidad de vendidos</b></h5> 
                <p class="mb-1">${productos.soldCount}</p>
                <h5 class="mb-1"><b>Imágenes ilustrativas</b></h5> 
@@ -40,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
                 for (let i = 0; i < productos.images.length; i++) {
                   let productoss = productos.images[i];
                   slide += `  <div class="${active}">
-                 <img src="${productoss}" class="d-block w-10" alt="...">
+                 <img src="${productoss}" class="d-block w-10" style="width: 85%"> alt="...">
                </div> `;
                active = "carousel-item";
                 };
@@ -51,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
       //  let productoss = productos.images[i];
 
         htmlParaApendear += 
-        `<br><div ext-center id="carouselExampleControls"; class="carousel slide" data-bs-ride="carousel" style="width: 60%">
+        `<br><div ext-center id="carouselExampleControls"; class="carousel slide" data-bs-ride="carousel" style="width: 70%">
         <div class="carousel-inner"  >
           ${slide}
          
@@ -186,8 +188,4 @@ localStorage.getItem("productID")
 
 });
 
-document.getElementById("sell1").addEventListener('submit', function () {
 
-  // localStorage.getItem("productID");
-     window.location.href = 'cart.html';
-  });
