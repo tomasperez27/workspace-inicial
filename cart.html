@@ -56,15 +56,15 @@
   <div id="send">
     
     <br><h4>Tipo de envío</h4>
-    <div class="contenedor" id="typeSend">
+    <div class="contenedor" id="typeSend2" >
     <div class="col">
-    <input type="radio" id="premium" name="1" value="1">
+    <input type="radio" id="1" name="typeSend" value="1">
     <label for="prem">Premium 2 a 5 días (15%)</label><br></div>
     <div class="col">
-    <input type="radio" id="express" name="1" value="2">
+    <input type="radio" id="2" name="typeSend" value="2">
     <label for="expr">Express 5 a 8 días (7%)</label><br></div>
     <div class="col">
-    <input type="radio" id="standard"  name="1" value="3">
+    <input type="radio" id="3"  name="typeSend" value="3">
     <label for="stan">Standard 12 a 15 días (5%)</label></div>
   </div>
     <br><br>
@@ -125,8 +125,8 @@
   <br>
 <h4>Forma de pago</h4>
 <div class="row">
- <p>No ha seleccionado <a href="#modal" value="Seleccionar"
-  class="btn btn-secondary" role="button" data-bs-toggle="modal" data-bs-target="#modal"></p></a> </div>
+ <p>No ha seleccionado <a href="#modal" 
+  data-bs-toggle="modal" data-bs-target="#modal"> Seleccionar</a> </p></div>
   <div class="modal fade" id="modal" tabindex="-1">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -157,9 +157,11 @@
             
           </div>
             </div>
+            
            
             <input type="radio" id="standard"  name="1" value="3">
             <label for="stan" name="modal" >Transferencia bancaria</label>
+            
             <label for="corner">Número de cuenta</label><br>
             <input type="text" class="form-control" style="width:45%" id="" name="corner">
             <br>

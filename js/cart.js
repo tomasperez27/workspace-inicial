@@ -76,24 +76,26 @@ let coste="";
        coste=resultado;
         }   
          
-          let typeSend= document.getElementById("typeSend").value;
+        document.getElementById("rr").innerHTML = coste;
+        document.getElementById("subT").innerHTML=`USD ` + coste;
+        
+          let typeSend= document.querySelector('input[name="typeSend"]:checked').value;
     console.log(typeSend);
        
    let result =  porcentajeSend(coste, typeSend);
 
 
-          document.getElementById("rr").innerHTML = coste;
-          document.getElementById("subT").innerHTML=`USD ` + coste;
           document.getElementById("cSend").innerHTML =`USD `+ result;
+          document.getElementById("total").innerHTML =`USD `+ (result + coste);
         });
            
     })
   });
   
 function porcentajeSend(num, valor){
-  let premium= document.getElementById('premium').value;
-  let express= document.getElementById('express').value;
-  let standard= document.getElementById('standard').value;
+  let premium= document.getElementById('1').value;
+  let express= document.getElementById('2').value;
+  let standard= document.getElementById('3').value;
 if(valor===premium){
   return num * 0.15
 }
@@ -150,16 +152,16 @@ let htmlParaApendear="";
         document.getElementById("newSell").innerHTML += htmlParaApendear;
       
       
-      document.getElementById('mr').addEventListener("input",function() {
+      document.getElementById('count').addEventListener("input",function() {
 
-        let counts = document.getElementById("step").value;
+        let counts = document.getElementById("count").value;
         let sub = document.getElementById("subT").value;
         let typeSend= document.getElementById("typeSend");
-       let result =  subTotal(counts , productos.cost)
-            let rrr= sumaSubTotal(result,sub)
+       let result =  subTotal(counts , productos.cost);
+            let rrr= sumaSubTotal(result,counts);
            let ggg= porcentajeSend(sub, typeSend);
           
-          document.getElementById("tt").innerHTML =result;
+          document.getElementById("count").innerHTML =result;
           document.getElementById("subT").innerHTML += rrr;
           document.getElementById("cSend").innerHTML = ggg;
         });
