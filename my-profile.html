@@ -58,11 +58,46 @@
     </div>
   </nav>
   <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
+    <form action="#" method="get" class="row mt-4 needs-validation" id="form-profile" novalidate >
+    <div class="container"  style="padding: 4%;">
+      <h2>Perfil</h2><br><hr>
+      <div  class="row g-3">
+        <div class="col-md-6">
+      <label for="street">Nombre</label><br>
+    <input type="text" class="form-control" id="nameProfile"  required> 
+    <div class="invalid-feedback">Ingresa un nombre</div>
+  </div>
+  <div class="col-md-6">
+     <label for="phone">Segundo Nombre</label>
+    <input type="tel"  class="form-control"   id="secondName" >
+  </div>
+    <br>
+    <div class="col-md-6">
+    <label for="corner">Apellido</label><br>
+    <input type="text" class="form-control" id="lastName"  required>
+    
+    <div class="invalid-feedback">Ingresa un apellido</div>
     </div>
+    <div class="col-md-6">
+      <label for="corner">Segundo apellido</label><br>
+      <input type="text" class="form-control" id="secondLastName" >
+      </div>
+    <div class="col-md-6">
+      <label for="corner">E-mail</label><br>
+      <input type="text" class="form-control"  id="email-profile"  value=""  required>
+      
+      <div class="invalid-feedback">Ingresa un e-mail</div>
+      </div>
+      <div class="col-md-6">
+        <label for="corner">Télefono de contacto</label><br>
+        <input type="text" class="form-control" id="phoneNumber" >
+        </div>
+        <br><hr style="margin-top: 4%;">
+
+      </div>
+      <input type="submit" class="btn btn-primary" id="saveChanges"  value="Guardar cambios" >
+      </div>
+    </form>
   </main>
   <footer class="text-muted">
     <div class="container">

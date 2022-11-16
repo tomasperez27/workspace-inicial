@@ -49,12 +49,13 @@ for (let product of productos.articles){
             <div class="col" id="mul">
           
             
-  <input id="count" type="number" min="1" max="" style="width:56px" value="${product.count}">
+  <input id="count" type="number" min="1" max="" style="width:56px" value="" required>
+  <div class="invalid-feedback">La cantidad de cada artículo debe estar especificada</div>
 </div> 
 
 <div class="col">
            
-            <strong> ${product.currency} <p class ="d-inline" id="rr"> ${product.unitCost}</p></strong>  
+            <strong> ${product.currency} <p class ="d-inline" id="inputSubtotal"> ${product.unitCost}</p></strong>  
             </div> 
             <hr>
             <div class="row" id="newSell">
@@ -76,13 +77,13 @@ let coste="";
        coste=resultado;
         }   
          
-        document.getElementById("rr").innerHTML = coste;
+        document.getElementById("inputSubtotal").innerHTML = coste;
         document.getElementById("subT").innerHTML=`USD ` + coste;
         
-          let typeSend= document.querySelector('input[name="typeSend"]:checked').value;
-    console.log(typeSend);
-       
-   let result =  porcentajeSend(coste, typeSend);
+          let typeSend1= document.getElementById("type-form");
+    
+       let typeSend2= typeSend1.typeSend.value;
+   let result =  porcentajeSend(coste, typeSend2);
 
 
           document.getElementById("cSend").innerHTML =`USD `+ result;
@@ -93,17 +94,21 @@ let coste="";
   });
   
 function porcentajeSend(num, valor){
-  let premium= document.getElementById('1').value;
-  let express= document.getElementById('2').value;
-  let standard= document.getElementById('3').value;
+  let premium= document.getElementById('premium').value;
+  let express= document.getElementById('express').value;
+  let standard= document.getElementById('standard').value;
+let porcentajePremium= 0.15;
+let porcentajeExpress= 0.07;
+let porcentajeStandard= 0.05;
+
 if(valor===premium){
-  return num * 0.15
+  return num * porcentajePremium
 }
 else if( valor=== express){
-  return num * 0.07
+  return num * porcentajeExpress
 }
 else if( valor=== standard){
-return num * 0.05
+return num * porcentajeStandard
 }
 }
     function subTotal(cant, price) {
@@ -169,11 +174,98 @@ let htmlParaApendear="";
     });
   });
 
- /* let counts = document.getElementById("step").value;
-  let count = document.getElementById("count").value;
-  let cost= document.getElementById("tt").value;
-  let cost2= document.getElementById("rr").value;
 
-  document.getElementById("subT").innerHTML=count+counts;*/
+ document.getElementById("tarj-credito").addEventListener('input', function(){
+  let formModal = document.getElementById("type-form");
+  let numCuenta= document.getElementById("nmr-cuenta");
+  let tarjCre= document.getElementById("tarj-credito").value;
+  let numTarj= document.getElementById("nmr-tarjeta");
+  let codSeg= document.getElementById("cod-seg");
+  let venc= document.getElementById("venc");
+  let check = formModal.check.value;
+  let textModal=    document.getElementById("textModal");
+  numCuenta.disabled  = false;
+  numTarj.disabled  = false;
+codSeg.disabled  = false;
+venc.disabled  = false;
+  if(check === tarjCre){
+    numCuenta.disabled  = true;
+    textModal.innerHTML="Tarjeta de crédito";
+  }
+
+ });
+
+ document.getElementById("transf-banc").addEventListener('input', function(){
+  let formModal = document.getElementById("type-form");
+  let numTarj= document.getElementById("nmr-tarjeta");
+let codSeg= document.getElementById("cod-seg");
+let venc= document.getElementById("venc");
+let transfBan= document.getElementById("transf-banc").value;
+let check = formModal.check.value;
+let numCuenta= document.getElementById("nmr-cuenta");
+let textModal=    document.getElementById("textModal");
+  numTarj.disabled  = false;
+codSeg.disabled  = false;
+venc.disabled  = false;
+numCuenta.disabled  = false;
+  
+  if(check === transfBan){
+    numTarj.disabled  = true;
+    codSeg.disabled  = true;
+    venc.disabled  = true;
+    textModal.innerHTML="Transferencia bancaria";
+  }
+
+ });
+ 
+ (() => {
+  'use strict'
+
+const forms = document.querySelectorAll('.needs-validation')
+
+// Loop over them and prevent submission
+Array.from(forms).forEach(form => {
+  form.addEventListener('submit', event => {
+    validarChecks()
+    
+  
+      if (!form.checkValidity()) {
+          event.preventDefault()
+         
+      }
+      else if(form.checkValidity() ){
+      cambiarTipo(event)}
+      form.classList.add('was-validated')
+  }) 
+}) 
+
+})()
+
+ function validarChecks(){
+  let boton = document.getElementById("seleccionar");
+  let formModal = document.getElementById("type-form");
+  let check = formModal.check.value;
+  let transfBan= document.getElementById("transf-banc").value;
+  let tarjCre= document.getElementById("tarj-credito").value;
+  
+if(check === transfBan || check === tarjCre ){
+  boton.style.color="rgb(66, 66, 252)"
+}
+else {
+  boton.style.color="rgb(250, 58, 58)"
+}
+  }
 
 
+
+ /* function validarForms(){
+    let msjAlert = document.getElementById("msj-alert");
+    msjAlert.classList.remove("hidden");
+  }*/
+  function cambiarTipo(event){
+event.preventDefault()
+    document.getElementById('msj-alert').style = 'display:block';
+  }
+ /*<div class="alert alert-success" role="alert">
+  A simple success alert—check it out!
+  </div>*/

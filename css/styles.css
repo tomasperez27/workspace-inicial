@@ -197,3 +197,8 @@ a.custom-card:hover {
   left: 115px;
   position: relative;
  }
+ input:disabled {
+  background-color: dimgrey;
+    color: rgb(88, 87, 86);
+   
+}

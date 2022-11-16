@@ -45,6 +45,9 @@
     </div>
   </nav>
   <main>
+ 
+  
+  <form action="#" method="get" class="row mt-4 needs-validation"  id="type-form" novalidate >
     <div class="container">
       <br>
       <h2 class="text-center"> Carrito de compras</h2>
@@ -52,46 +55,65 @@
       <div id="cart">
   </div>
   <br>
-  <form action="" class="form">
-  <div id="send">
+
+
+
+  <div class="contenedor" id="send1">
     
     <br><h4>Tipo de envío</h4>
-    <div class="contenedor" id="typeSend2" >
+    <div  id="typeSend2" >
     <div class="col">
-    <input type="radio" id="1" name="typeSend" value="1">
-    <label for="prem">Premium 2 a 5 días (15%)</label><br></div>
-    <div class="col">
-    <input type="radio" id="2" name="typeSend" value="2">
-    <label for="expr">Express 5 a 8 días (7%)</label><br></div>
-    <div class="col">
-    <input type="radio" id="3"  name="typeSend" value="3">
-    <label for="stan">Standard 12 a 15 días (5%)</label></div>
+    <input type="radio"  id="premium" name="typeSend" value="premium"  >
+    <label for="premium" class= "form-check-label" >Premium 2 a 5 días (15%)</label><br>
+    
   </div>
+    <div class="col">
+    <input type="radio" id="express" name="typeSend" value="express">
+    <label for="express" class= "form-check-label">Express 5 a 8 días (7%)</label><br>
+  </div>
+    <div class="col">
+    <input type="radio" id="standard"  name="typeSend" value="standard"aria-describedby="invalidCheckFeedback" required >
+    <label for="standard" class= "form-check-label" aria-required="true">Standard 12 a 15 días (5%)</label>
+    <div class="invalid-feedback">Debe seleccionar una forma de envío</div>
+  </div>
+  
+  </div>
+  </div>
+
+
     <br><br>
+    <br>
     <h4>Dirección de envío</h4>
     <div  class="row g-3">
     <div class="col-md-6">
     <label for="street">Calle</label><br>
-    <input type="text" class="form-control" style="width:620px"  id="" name="street"> 
+    <input type="text" class="form-control" style="width:620px"  id="street" name="1" required> 
+    <div class="invalid-feedback">Ingresa una calle</div>
   </div>
   <div class="col-md-6">
      <label for="phone">Numero</label>
-    <input type="tel"  class="form-control" style="width:240px" id="" name="number">
+    <input type="tel"  class="form-control" style="width:240px"   id="number" name="1" required>
+    <div class="invalid-feedback">Ingresa un numero</div>
   </div>
     <br>
+    <div class="col-md-6">
     <label for="corner">Esquina</label><br>
-    <input type="text" class="form-control" style="width:620px" id="" name="corner">
-    <br>
+    <input type="text" class="form-control" style="width:620px" id="corner" name="1" required>
     
+    <div class="invalid-feedback">Ingresa una esquina</div>
+    <br>
   </div>
-    </div>
-  </form>
+  </div>
+    
+   
   <br><hr>
+  
   <h4> Costos </h4>
   <br>
   <div class="contenedor">
 <div id="costSend">
-  
+  <div id= "msj-alert" class="invalid-feedback alert alert-success" role="alert" style="display: none">
+    ¡Has comprado con éxito!</div>
    <div class="list-group-item">
   <div class="row">
   
@@ -121,52 +143,60 @@
   </div>
 </div>
   </div>
-  </main>
+  
   <br>
 <h4>Forma de pago</h4>
-<div class="row">
- <p>No ha seleccionado <a href="#modal" 
-  data-bs-toggle="modal" data-bs-target="#modal"> Seleccionar</a> </p></div>
+<div class="contenedor">
+
+  
+ <label id="textModal">No ha seleccionado </label>
+
+ <a href="#modal" 
+  data-bs-toggle="modal" class="" id="seleccionar" data-bs-target="#modal" required> Seleccionar</a> 
+  <div id ="seleccionar" class="invalid-feedback">Ingresa seleccionar una forma de pago</div>
+</div>
   <div class="modal fade" id="modal" tabindex="-1">
     <div class="modal-dialog">
-      <div class="modal-content">
+      <div class="modal-content"  id="form-modal">
         <div class="modal-header">
           <h5 class="modal-title">Forma de pago</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form action="" class="form">
+        
         <div class="modal-body">
           
-          <input type="radio" id="standard"  name="1" value="3">
-          <label for="stan">Tarjeta de crédito</label>
+          <input type="radio" id="tarj-credito"  name="check" value="tarj-credito" required>
+          <label for="tarj-credito">Tarjeta de crédito</label>
           <hr>
 <br>
           <div  class="row g-3">
             <div class="col-md-6">
-            <label for="street">Número de tarjeta</label><br>
-            <input type="text" class="form-control" style="width:95%"  id="" name="street"> 
+            <label for="nmr-tarjeta">Número de tarjeta</label><br>
+            <input type="text" class="form-control" style="width:95%"  id="nmr-tarjeta" required> 
           </div>
           <div class="col-md-6">
-             <label for="phone">Código de seg.</label>
-            <input type="tel"  class="form-control" style="width:45%" id="" name="number">
+             <label for="cod-seg">Código de seg.</label>
+            <input type="text"  class="form-control" style="width:45%" id="cod-seg"required >
           </div>
             <br>
-            <label for="corner">Vencimiento MM/AA</label><br>
-            <input type="text" class="form-control" style="width:45%" id="" name="corner">
+            <label for="venc">Vencimiento MM/AA</label>
+            <input type="text" class="form-control" style="width:45% " id="venc" required >
             <br> <hr>
             
           </div>
             </div>
             
-           
-            <input type="radio" id="standard"  name="1" value="3">
-            <label for="stan" name="modal" >Transferencia bancaria</label>
             
-            <label for="corner">Número de cuenta</label><br>
-            <input type="text" class="form-control" style="width:45%" id="" name="corner">
+            <label for="transf-banc" name="modal" >
+            <input type="radio" id="transf-banc"  name="check" value="transf-banc" required>
+            Transferencia bancaria</label>
+            
+            <br>
+            <label for="nmr-cuenta">Número de cuenta</label>
+            <input type="text" class="form-control" style="width:45%" id="nmr-cuenta" required>
             <br>
 
-  
+         
 
         <div class="modal-footer">
           <input type="button" class="btn btn-primary" id="siP" name="modal" value="Cerrar" data-bs-dismiss="modal">
@@ -174,8 +204,14 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> <br>
+
+  <div class="row">
+    <input type="submit" class="btn btn-primary" id="finalizar"  value="Finalizar Compra" >
+  </div> 
+
 </form>
+</main>
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">
